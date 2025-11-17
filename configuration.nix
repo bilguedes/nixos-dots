@@ -3,8 +3,8 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
-      ./nixvim.nix
+      /etc/nixos/hardware-configuration.nix
+      /etc/nixos/nixvim.nix
     ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
