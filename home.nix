@@ -66,8 +66,6 @@
               family = "Iosevka NF";
               style = "Regular";
           };
-      theme = "Nord";  
-      themeFile = [ pkgs.alacritty-theme ];
       font.size = 14;
       };
   };
