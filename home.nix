@@ -19,9 +19,9 @@
       rebuild = "nh os switch /etc/nixos";
       boot = "nh os boot /etc/nixos";
     };
-    initExtra = ''
-      export PS1='\[\e[38;5;112m\]\u@\h\[\e[0m\] \[\e[38;5;69m\]\W\[\e[0m\] \\$ '   
-      '';
+   # initExtra = ''
+    #  export PS1='\[\e[38;5;112m\]\u@\h\[\e[0m\] \[\e[38;5;69m\]\W\[\e[0m\] \\$ '   
+    #  '';
   };
 
   programs.nushell = {
@@ -43,6 +43,10 @@
     };
   };
 
+  programs.starship = {
+      enable = true;
+  };
+
   programs.kitty = {
       enable = true;
       settings = {
@@ -51,22 +55,22 @@
           window_margin_width = 8;
           placement_strategy = "center";
       };
-      font = {
-          name = "Iosevka NF";
-          size = 14;
-      };
-      themeFile = "gruvbox-dark-soft";
+      # font = {
+      #     name = "Iosevka NF";
+      #     size = 14;
+      # };
+      # themeFile = "gruvbox-dark-soft";
   };
 
   programs.alacritty = {
       enable = true;
       settings = {
-          window.opacity = 1;
-          font.normal = {
-              family = "Iosevka NF";
-              style = "Regular";
-          };
-      font.size = 14;
+          # window.opacity = 1;
+      #     font.normal = {
+      #         family = "Iosevka NF";
+      #         style = "Regular";
+      #     };
+      # font.size = 14;
       };
   };
 
@@ -82,7 +86,44 @@
             ];
         };
          settings = {
+            "browser.search.defaultenginename" = "duckduckgo";
             "extensions.autoDisableScopes" = 0;
+            "browser.search.suggest.enabled.private" = false;
+            "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+            "browser.newtabpage.pinned" = [
+          {
+            title = "youtube";
+            url = "https://www.youtube.com/";
+           }
+          {
+            title = "reddit";
+            url = "https://reddit.com/";
+           }
+          {
+            title = "nixos-search";
+            url = "https://search.nixos.org/";
+          }
+          {
+            title = "mynixos";
+            url = "https://mynixos.com/";
+          }
+          {
+            title = "gitlab";
+            url = "https://www.gitlab.com/";
+          }
+          {
+            title = "github";
+            url = "https://www.github.com/";
+          }
+          {
+            title = "chatgpt";
+            url = "https://chatgpt.com/";
+          }
+          {
+            title = "grok";
+            url = "https://grok.com/";
+          }
+        ];
         };
       };
   };

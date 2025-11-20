@@ -3,8 +3,9 @@
 {
   imports =
     [
-      /etc/nixos/hardware-configuration.nix
-      /etc/nixos/nixvim.nix
+      ./hardware-configuration.nix
+      ./nixvim.nix
+      ./stylix.nix
     ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -18,7 +19,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.plymouth.enable = true;
-  boot.plymouth.theme = "bgrt";
+  # boot.plymouth.theme = "bgrt";
 
   networking.hostName = "snowflake";
 
@@ -86,31 +87,31 @@
   environment.systemPackages = with pkgs; [
    audacity
    bat
-   nautilus
-   showtime
+   # nautilus
+   # showtime
    vesktop
    firefox
    ungoogled-chromium
    unzip
    unrar
-   gtk3
-   gtk4
-   nwg-look
-   base16-schemes
+   # nwg-look
    hydralauncher
    qbittorrent
-   inputs.kwin-effects-forceblur.packages.${system}.default
-   inputs.helium.defaultPackage.${system}
+   inputs.kwin-effects-forceblur.packages.${stdenv.hostPlatform.system}.default
+   inputs.helium.defaultPackage.${stdenv.hostPlatform.system}
    prismlauncher
    dconf
    ollama
    distrobox
    hyprshot
    nh
+   # wofi
+   # waybar
    obs-studio
-   bibata-cursors
-   adwaita-icon-theme
+   # bibata-cursors
+   # adwaita-icon-theme
    gimp
+   parsec-bin
    base16-schemes
    hyprpaper
    hyprlock
@@ -154,6 +155,9 @@
   users.extraGroups.docker.members = [ "mine" ];
   
   virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.dragAndDrop = true;
+  virtualisation.virtualbox.guest.clipboard = true;
   users.extraGroups.vboxusers.members = [ "mine" ];
 
   services.power-profiles-daemon.enable = true;
