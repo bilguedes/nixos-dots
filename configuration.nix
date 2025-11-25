@@ -82,34 +82,36 @@
   services.flatpak.packages = [
    "org.vinegarhq.Sober"
    "com.usebottles.bottles"
+   "com.stremio.Service"
   ];
 
   environment.systemPackages = with pkgs; [
    audacity
    bat
-   # nautilus
-   # showtime
+   nautilus
+   showtime
    vesktop
    firefox
    ungoogled-chromium
    unzip
    unrar
-   # nwg-look
+   nwg-look
    hydralauncher
    qbittorrent
    inputs.kwin-effects-forceblur.packages.${stdenv.hostPlatform.system}.default
    inputs.helium.defaultPackage.${stdenv.hostPlatform.system}
    prismlauncher
+   qemu
+   virt-manager
    dconf
    ollama
    distrobox
    hyprshot
    nh
-   # wofi
-   # waybar
+   wofi
    obs-studio
-   # bibata-cursors
-   # adwaita-icon-theme
+   bibata-cursors
+   adwaita-icon-theme
    gimp
    parsec-bin
    base16-schemes
@@ -120,6 +122,8 @@
    zed-editor
    zed-discord-presence
   ];
+
+  programs.kdeconnect.enable = true;
 
   programs.nix-ld.enable = true;
 
@@ -148,7 +152,11 @@
   services.devmon.enable = true;
   services.gvfs.enable = true; 
   services.udisks2.enable = true;
- 
+
+  virtualisation.waydroid.enable = true;
+
+  virtualisation.libvirtd.enable = true;
+
   virtualisation.docker = {
     enable = true;
   };
