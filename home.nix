@@ -55,11 +55,11 @@
           window_margin_width = 8;
           placement_strategy = "center";
       };
-      # font = {
-      #     name = "Iosevka NF";
-      #     size = 14;
-      # };
-      # themeFile = "gruvbox-dark-soft";
+  #     font = {
+  #         name = "Iosevka NF";
+  #         size = 14;
+  #     };
+  #     themeFile = "gruvbox-dark-soft";
   };
 
   programs.alacritty = {
@@ -72,6 +72,10 @@
       #     };
       # font.size = 14;
       };
+  };
+
+  programs.waybar = {
+      enable = true;
   };
 
   programs.firefox = {
