@@ -99,6 +99,7 @@
    hydralauncher
    qbittorrent
    inputs.kwin-effects-forceblur.packages.${stdenv.hostPlatform.system}.default
+   inputs.zen-browser.packages.${stdenv.hostPlatform.system}.default
    inputs.helium.defaultPackage.${stdenv.hostPlatform.system}
    prismlauncher
    qemu

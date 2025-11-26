@@ -30,11 +30,15 @@
     eden = {
       url = "github:grantimatter/eden-flake";
     };
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     helium.url = "github:FKouhai/helium2nix";
     nix-flatpak.url = "github:gmodena/nix-flatpak/";
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-flatpak, stylix, nvf, nur, eden, helium, nixvim, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-flatpak, stylix, nvf, nur, eden, helium, nixvim, zen-browser, ... }@inputs:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
